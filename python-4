@@ -1,0 +1,40 @@
+scores = {
+    "Football": {"Alice": 85, "Bob": 78, "Charlie": 90},
+    "Basketball": {"Alice": 88, "David": 92, "Charlie": 80},
+    "Cricket": {"Bob": 75, "Charlie": 95, "Eve": 82}
+}
+
+
+scores["Football"]["Alice"] = 89
+
+
+del scores["Cricket"]["Bob"]
+
+
+high_scorers_football = {
+    student: score
+    for student, score in scores["Football"].items()
+    if score > 85
+}
+
+print("High scorers in Football:", high_scorers_football)
+
+
+football_players = set(scores["Football"].keys())
+basketball_players = set(scores["Basketball"].keys())
+cricket_players = set(scores["Cricket"].keys())
+
+
+all_players = football_players | basketball_players | cricket_players
+
+common_players = football_players & basketball_players & cricket_players
+
+football_only = football_players - basketball_players
+
+print("\nAll players:", all_players)
+print("Players in all events:", common_players)
+print("Football only players:", football_only)
+
+
+student_totals = {}
+student_counts = {}
